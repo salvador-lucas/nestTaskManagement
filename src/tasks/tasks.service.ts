@@ -4,6 +4,7 @@ import { GetTaskFilterDto } from './dto/get-task-filter.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskRepository } from './task.repository';
 import { Task } from './task.entity';
+import { TaskStatus } from './task-status.enum';
 
 @Injectable()
 export class TasksService {    
@@ -31,39 +32,15 @@ export class TasksService {
         return `Task deleted. Id: ${id}`;
     }
 
+    async updateTaskStatus(id: number, status: TaskStatus): Promise<Task> {
+        console.log("service", status)
+        const task = await this.getTaskById(id);
+        task.status = status;
+        await task.save();
+        return task;
+    }
 
-    // getAllTasks(): Task[] {
-    //     return this.tasks;
-    // }
-
-    // getTaskWithFilter(filterDto: GetTaskFilterDto): Task[] {
-    //     const {status, search} = filterDto;
-    //     let tasks = this.getAllTasks();
-    //     if(status){
-    //         tasks = tasks.filter(task => task.status === status);
-    //     }
-    //     if(search){
-    //         tasks = tasks.filter(task => 
-    //             task.title.includes(search) ||
-    //             task.description.includes(search)
-    //         );
-    //     }
-    //     return tasks;
-    // }
-
-    // deleteTask(id: string): string{
-    //     let found = this.getTaskById(id);
-    //     this.tasks.map((task, index) => {
-    //         if(task.id == found.id){
-    //             this.tasks.splice(index, 1);
-    //         }
-    //     });
-    //     return `Task deleted. Id: ${id}`
-    // }
-
-    // updateTaskStatus(id: string, status: TaskStatus): Task{
-    //     const task = this.getTaskById(id);
-    //     task.status = status;
-    //     return task;
-    // }
+    async getTasks(filterDto: GetTaskFilterDto): Promise<Task[]>{
+        return this.taskRepository.getTasks(filterDto);
+    }
 }
