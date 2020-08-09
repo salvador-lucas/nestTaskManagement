@@ -33,7 +33,6 @@ export class TasksService {
     }
 
     async updateTaskStatus(id: number, status: TaskStatus): Promise<Task> {
-        console.log("service", status)
         const task = await this.getTaskById(id);
         task.status = status;
         await task.save();
