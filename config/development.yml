@@ -1,8 +1,16 @@
+# db: 
+#   host: localhost
+#   username: 'postgres'
+#   password: 'postgres'
+#   synchronize: true
+
 db: 
-  host: localhost
-  username: 'postgres'
-  password: 'postgres'
-  synchronize: true
+  type: 'mysql'
+  port: 3306
+  database: 'taskmanagement'
+  username: root
+  password: '123456'
+  synchronize: false
 
 jwt:
   secret: 'topSecret51'

@@ -1,0 +1,50 @@
+[{
+   "name": "default",
+   "type": "mysql",
+   "host": "localhost",
+   "port": 3306,
+   "username": "root",
+   "password": "123456",
+   "database": "taskmanagement",
+   "synchronize": false,
+   "logging": true,
+   "entities": [
+      "src/**/*.entity.ts"
+   ],
+   "migrations": [
+      "./migration/**/*.ts"
+   ],
+   "subscribers": [
+      "./subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/**/*.entity.ts",
+      "migrationsDir": "./migration",
+      "subscribersDir": "./subscriber"
+   }
+}, {
+   "name": "staging",
+   "type": "mysql",
+   "host": "localhost",
+   "port": 3306,
+   "username": "root",
+   "password": "123456",
+   "database": "taskmanagement",
+   "synchronize": false,
+   "logging": true,
+   "entities": [
+      "src/**/*.entity.ts"
+   ],
+   "migrations": [
+      "./migration/**/*.ts"
+   ],
+   "subscribers": [
+      "./subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/**/*.entity.ts",
+      "migrationsDir": "./migration",
+      "subscribersDir": "./subscriber"
+   }
+}
+]

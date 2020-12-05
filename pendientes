@@ -1,0 +1,7 @@
+pendientes:
+- ver lo del router
+- ver la conexion a la db
+- ver lo de migrations
+- ver middlewares
+- traducir mensajes (con el req.loggedo algo asi)
+- tests?
